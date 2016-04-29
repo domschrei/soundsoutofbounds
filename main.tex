@@ -13,6 +13,15 @@
 \usepackage{mathtools}
 \usepackage[percent]{overpic}
 \usepackage[absolute]{textpos}
+\usepackage{beramono}
+\usepackage{ascii}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+
+%\titleformat{\section}[display]{\normalfont\asciifamily\Large\bfseries}{\chaptertitlename\ \thechapter}{15pt}{\Large}
+%\titleformat{\subsection}[display]{\normalfont\asciifamily\large\bfseries}{\chaptertitlename\ \thechapter}{15pt}{\large}
+
+%\renewcommand{\familydefault}{\asciifamily}
 
 \setcounter{secnumdepth}{-1}
 \setlength{\TPHorizModule}{\paperwidth}\setlength{\TPVertModule}{\paperheight}
@@ -31,21 +40,24 @@
 	\end{textblock}}
 	
 	\def\maketitle{
-		\vspace{10cm}
-		\begin{center}
-			\begin{overpic}[width=12cm]{Titel_ohneSchrift.png}
-				\put (20,85) {\Huge Sounds}
-				\put (15,75) {\Huge Out Of Bounds}
+		\vspace*{1.4cm}
+		%\begin{center}
+			%\includegraphics[width=14cm]{hacker-cover.png}
+			\begin{overpic}[width=11cm]{hacker-cover-zugeschnitten.png}
+				%\put (20,85) {\Huge Sounds}
+				%\put (15,75) {\Huge Out Of Bounds}
 			\end{overpic}
-			{\Large Wiederverwendbare Liedermodule \\ }
-			\vspace{1cm}
-			{Fachschaft Informatik \& Softwaretechnik, Universität Stuttgart}
-		\end{center}}
+			%{\Large Wiederverwendbare Liedermodule \\ }
+			%\vspace{1cm}
+			%{Fachschaft Informatik \& Softwaretechnik, Universität Stuttgart}
+		%\end{center}
+		}
 		
-		\makeatother
+		%\makeatother
 		
 		\begin{document}
-			\title{Wiederverwendbare Liedermodule}
+			
+			%\title{Wiederverwendbare Liedermodule}
 			\maketitle
 			\thispagestyle{empty}
 			\pagebreak
@@ -67,7 +79,7 @@
 			\chord{e}All I \chord{D}wanna have, \chord{e}All I \chord{D}wanna have, oh \\
 			\chord{e}All I \chord{D}wanna have is a \chord{H}new PC \\
 			
-			As cheap as a screw, as free as a GNU\footnote{\scriptsize Betriebssystem--Projekt, das den Begriff \textit{Freie Software} maßgeblich geprägt hat} \\
+			As cheap as a screw, as free as a GNU\footnote{\scriptsize Betriebssystem-Projekt, das den Begriff \textit{Freie Software} maßgeblich geprägt hat} \\
 			As cool as space, as useful as an Ace \\
 			Addicting as meth, running 'til my death \\
 			As certain as night, always by my side \\
@@ -155,7 +167,7 @@
 			The \chord{a}program must compile until to\chord{e}morrow noon \\
 			I'm \chord{a}wasting my time, looking \chord{e}for a bug \\
 			For \chord{a}hours and hours I am \chord{e}trying my luck \\
-			But no\chord{d}thing ever happens \chord{e}-- and I wo\chord{a}nder. \chord{e \ \ a} \\
+			But no\chord{d}thing ever happens \chord{e}- and I wo\chord{a}nder. \chord{e \ \ a} \\
 			
 			My partner tells me, „Everything's fine, \\
 			I fixed that problem on my branch for quite some time \\
@@ -184,7 +196,7 @@
 			
 			My \chord{a}IDE de\chord{e}synchronized \\
 			My \chord{a}commands still not \chord{e}recognized \\
-			And \chord{d}nothing ever happens \chord{e}-- and I won\chord{a}der. \chord{e \ \ a}  \\
+			And \chord{d}nothing ever happens \chord{e}- and I won\chord{a}der. \chord{e \ \ a}  \\
 			
 			I wonder how, I wonder why -- Git does seem so easy for that other guy \\
 			but all that I can see is just the giant branching tree. \\
@@ -193,7 +205,7 @@
 			And I wonder, wonder \\
 			
 			I  \chord{C}wonder how, I \chord{G}wonder why \\
-			\chord{a}Someone told me Git was easy \chord{e}-- What a lie! \\
+			\chord{a}Someone told me Git was easy \chord{e}- What a lie! \\
 			And I\chord{d} can’t even see\chord{G} \\
 			And I\chord{F} can’t even see\chord{G} \\
 			And I\chord{F} can’t even see\chord{G} \\
