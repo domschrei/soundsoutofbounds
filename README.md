@@ -40,3 +40,9 @@ The contents of this book may be distributed and used according to the Creative 
 * Codefinger (orig. "Goldfinger")
 * Bonus I: Kunst am Bau (orig. "What A Wonderful World")
 * Bonus II: Volker Claus (orig. "Annabell, ach Annabell")
+
+## Building PDF
+
+The PDF for the song book can be assembled using PdfLatex (as long as the needed packages are available).
+
+`pdflatex -synctex=1 -interaction=nonstopmode main.tex`
