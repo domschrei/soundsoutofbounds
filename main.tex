@@ -18,6 +18,22 @@
 \usepackage[T1]{fontenc}
 \usepackage{titlesec}
 \usepackage[most]{tcolorbox}
+\usepackage{color}
+
+% Clickable ToC, see http://tex.stackexchange.com/a/73865
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+% Farbgebung
+\newcommand\chordcolor{blue}
+\newcommand\refboxcolor{gray!17}
+\newcommand\colorjoke{red}
 
 % Kästen um Refrains herum
 \tcbset{
@@ -27,7 +43,7 @@
 	right=0pt,
 	top=0pt,
 	bottom=0pt,
-	colback=gray!12,
+	colback=\refboxcolor,
 	colframe=white,
 	width=\dimexpr\textwidth\relax,
 	enlarge left by=0mm,
@@ -48,7 +64,7 @@
 \setlength{\parindent}{0cm}
 
 % Setzen von Akkorden
-\newcommand\chord[2][l]{\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}#2\\\mbox{}\end{tabular}}}
+\newcommand\chord[2][l]{\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}\textcolor{\chordcolor}{#2}\\\mbox{}\end{tabular}}}
 
 % Refrain-Hervorhebung und -Referenzierung
 \newcommand\refrain[1]{\begin{tcolorbox}#1\end{tcolorbox} \ }
@@ -75,15 +91,15 @@
 		
 		\hfill  \textit{Text:} #2
 	\end{textblock}}
+	
+% Witz
+\newcommand\joke[1]{\textcolor{\colorjoke}{\textsc{#1}}}
 
 % Titelblatt
 \def\maketitle{
-	\vspace*{1.4cm}
+	\vspace*{0.5cm}
 	%\begin{center}
-		%\includegraphics[width=14cm]{hacker-cover.png}
-		\begin{overpic}[width=11cm]{hacker-cover-zugeschnitten.png}
-			%\put (20,85) {\Huge Sounds}
-			%\put (15,75) {\Huge Out Of Bounds}
+		\begin{overpic}[width=12.5cm]{hacker-cover.pdf}
 		\end{overpic}
 		%{\Large Wiederverwendbare Liedermodule \\ }
 		%\vspace{1cm}
@@ -110,7 +126,7 @@
 Liebe Leserin, lieber Leser! \\
 			
 Fertig kompiliert, Beta-getestet und integriert liegt es nun in deinen Händen, das neue Liederbuch für Informatiker, Softwaretechniker, IT-ler und alle Interessierten. 
-Es erwartet dich eine bunte Mischung von komplett selbst-gedichteten Songtexten, die die \glqq Welt der Informatik\grqq \ thematisieren, aber nicht allzu ernst nehmen. Das Digitale nimmt heute so viel Einfluss auf unsere Leben wie noch nie zuvor -- da ist es doch völlig angebracht, auch einmal unsere Smartphones und Computer, und unsere Erlebnisse mit ihnen, ausgiebig zu besingen.
+Es erwartet dich eine bunte Mischung von zweiundzwanzig selbst-gedichteten Songtexten, die die \glqq Welt der Informatik\grqq \ thematisieren, aber nicht allzu ernst nehmen. Das Digitale nimmt heute so viel Einfluss auf unsere Leben wie noch nie zuvor -- da ist es doch völlig angebracht, auch einmal unsere Smartphones und Computer, und unsere Erlebnisse mit ihnen, ausgiebig zu besingen.
 
 %Auf den nächsten Seiten findest du Lobeshymnen auf \emph{Stack Overflow} und \emph{Python}, Klagelieder über \texttt{git} und \TeX, Liebesbekundungen an die eigene Firewall und den nächsten Wunsch-PC, und vieles mehr. 
 Entstanden ist das ganze aus dem Wunsch heraus, den damals von der Stuttgarter Informatik-- und Softwaretechnik-Fachschaft herausgegebenen und mittlerweile etwas in die Jahre gekommenen Liederbüchern \emph{Chor Dump} und \emph{Chor Dump 2} einen würdigen Nachfolger zu bescheren.
@@ -126,9 +142,9 @@ Damit wäre alles geklärt -- ganz viel Spaß beim Singen! \\
 
 \subsection*{Hinweise}
 
-Die Lieder sind soweit möglich thematisch sortiert; Freunde der Softwareentwicklung beginnen am besten ganz am Anfang, während die \glqq Endbenutzer\grqq \ des Liederbuchs insbesondere auf den Seiten 14 bis 27 auf ihre Kosten kommen. Hymnen auf einzelne, bekannte Institutionen aus dem Bereich der Informatik (etwa Linux oder Python) folgen ab Seite 28. Abgerundet wird das Buch durch zwei \glqq Bonus-Lieder\grqq \ spezifisch für die Informatik an der Uni Stuttgart.
+Die Lieder sind soweit möglich thematisch sortiert; Freunde der Softwareentwicklung beginnen am besten ganz am Anfang, während die \glqq Endbenutzer\grqq \ des Liederbuchs insbesondere auf den Seiten 14 bis 27 auf ihre Kosten kommen. Hymnen auf einzelne, bekannte Institutionen aus der IT-Welt (etwa Linux oder Python) folgen ab Seite 28. Abgerundet wird das Buch durch zwei \glqq Bonus-Lieder\grqq \ spezifisch für die Informatik an der Uni Stuttgart.
 
-\emph{Refrains} sind grau hinterlegt.
+\emph{Refrains} sind hinterlegt.
 Zu \emph{Strophen} und \emph{Bridges} sind die Akkordfolgen in der Regel einmal angegeben, und werden dann implizit wiederholt. Die Lieder sollte man im Ohr haben, da keine Noten abgedruckt sind.
 
 Die Tonart einiger Lieder wurde zugunsten der Spielbarkeit angepasst.
@@ -144,10 +160,10 @@ I'm \chord{a}wasting my time, looking \chord{e}for a bug \\
 For \chord{a}hours and hours I am \chord{e}trying my luck \\
 But no\chord{d}thing ever happens \chord{e}- and I wo\chord{a}nder. \chord{e \ \ a} \\
 
-My partner tells me, „Everything's fine, \\
+My partner tells me, \glqq Everything's fine, \\
 I fixed that problem on my branch for quite some time \\
 Just fetch and merge, stage and commit \\
-and don't forget to push -- that should be it“ \\
+and don't forget to push -- that should be it\grqq \\
 But nothing ever happens -- and I wonder. \\
 
 \refrain{
@@ -179,7 +195,7 @@ And \chord{d}nothing ever happens \chord{e}- and I won\chord{a}der. \chord{e \ \
 \refrain{
 	I wonder how, I wonder why -- Git does seem so easy for that other guy \\
 	but all that I can see is just the giant branching tree. \\
-	I pull and push every time, still, merging conflicts haunt me every second line \\
+	I pull and push every time, still merging conflicts haunt me every second line \\
 	and all that I can see is just that giant branching tree. \\
 	And I wonder, wonder \\
 	
@@ -218,7 +234,7 @@ Hey, Checker, leave my code alone \\
 \vspace*{3cm}
 
 \begin{center}
-	\textsc{Was hältst du eigentlich von Vererbung? \\
+	\joke{Was hältst du eigentlich von Vererbung? \\
 		-- Super!}
 \end{center}
 
@@ -259,7 +275,7 @@ Eventually we’ll just make it worse \\
 \subsection{Never Gonna Push You Up}
 \songinfo{Rick Astley -- Never Gonna Give You Up}{Tobias Klotz}
 
-||: F G e a F G e a :|| \\
+\textcolor{\chordcolor}{||: F G e a F G e a :||} \\
 
 \chord{a} We're no strangers to source \chord{G}control \\
 \chord{a} You know the rules and \chord{G}so do I \\
@@ -304,7 +320,7 @@ Gotta make you cry \\
 \vspace*{3cm}
 
 \begin{center}
-	\textsc{Welche Worte akzeptiert ein schwedischer Palindrom-Automat? \\
+	\joke{Welche Worte akzeptiert ein schwedischer Palindrom-Automat? \\
 		\ \\
 		\ldots \\
 		\ \\
@@ -316,7 +332,7 @@ Gotta make you cry \\
 \subsection{Commit The Code, Jack}
 \songinfoshort{Ray Charles -- Hit The Road, Jack}{Simon Reiß}
 
-a \ \ G \ \ F \ \ E \ \textsc{(durchgängig)}
+\textcolor{\chordcolor}{a \ \ G \ \ F \ \ E} \ \textsc{(durchgängig)}
 
 \refrain{
 	Commit the Code, Jack \\
@@ -324,7 +340,7 @@ a \ \ G \ \ F \ \ E \ \textsc{(durchgängig)}
 	no more, no more, no more, no more \\
 	Commit the Code, Jack and don’t you hold back no more
 	
-	\hfill What you say? \\
+	\hfill What'd you say? \\
 	Commit the Code, Jack and don’t you hold back \\
 	no more, no more, no more, no more \\
 	Commit the Code, Jack and don’t you hold back no more}
@@ -356,7 +372,7 @@ That’s right \\
 
 \refrefrain
 
-\hfill What you say?
+\hfill What'd you say?
 
 \refrain{
 	Commit the Code, Jack and don’t you hold back \\
@@ -398,7 +414,7 @@ That’s right \\
 \vspace*{3cm}
 
 \begin{center}
-	\textsc{
+	\joke{
 		Ich habe einen Informatiker gefragt, ob er was vom Automaten möchte. \\
 		Ihm fehlten die Worte.}
 \end{center}
@@ -416,7 +432,7 @@ That’s right \\
 	Only know SS\chord{C}L when it broke somehow\chord{G} \\
 	Only lock your \chord{D}ports when the problems grow\chord{e} \\
 	Only know your \chord{C}buffers when they overflow\chord{G} \ \ \chord{D} \\
-	And they overflow} e C D h e C D \\
+	And they overflow} \textcolor{\chordcolor}{e C D h e C D} \\
 
 \chord{e}Staring at the bottom of your \chord{C}class  \\
 Hoping one\chord{D} day you’ll make the tests \chord{h}pass \\
@@ -428,7 +444,7 @@ Everything you code\chord{e} is insecu\chord{C}re \chord{D} \\
 \refrefrain
 
 Staring at the SQL command \\
-The data’s gone, and the admin’s banned \\
+The data’s gone, but this wasn't planned \\
 Cause injects are cruel, and they happen so fast \\
 Staring at the empty database \\
 You merely hope that the hardware stays \\
@@ -446,18 +462,18 @@ Now they overflow \\
 	
 	\vspace*{3cm}
 
-		\textsc{\ \ \ \ \ \ Zehn kleine Softwarenascher \\
+		\joke{\ \ \ \ \ \ Zehn kleine Softwarenascher \\
 			\ \\
 			Zehn kleine Softwarenascher machten einen Join \\
 			der eine rechnet immer noch, da waren's nur noch neun \\
 			Neun kleine Softwarenascher vererbten eine Bool \\
 			Einer malt wohl immernoch das UML-Modul \\
-			Acht kleine Softwarenascher surften gerne schnell \\
-			Sieben hatten LTE und einer nur \ldots [loading] \\
+			Acht kleine Softwarenascher surften quer durchs Netz \\
+			Sieben hatten LTE, der letzte hatt' nur EDGE \\
 			Sieben kleine Softwarenascher schrieben auf nen Stack \\
 			Einer pushte ihn zu voll, da war das Programm weg \\
 			Sechs kleine Softwarenascher nutzten SVN, \\
-			dem einen hat das nicht gefalln' da fing er an zu flenn' \\
+			der eine mochte lieber Git, er fing an wegzurenn' \\
 			Fünf kleine Softwarenascher rannten um die Wett' \\
 			Einer der verhungerte, der Rest kam nicht vom Fleck \\
 			Vier kleine Softwarenascher schrieben SQL \\
@@ -495,7 +511,7 @@ And all\chord{Bb} the download bu\chord{C}ttons are so bli\chord{d}nding \\
 
 \refrain{
 	Because \chord{Bb}maybe \chord{d} \\
-	\chord{F} You're gonna be the one that \chord{Bb}saves me \chord{d}\\
+	\chord{F} You're \chord{C}gonna be the one that \chord{Bb}saves me \chord{d}\\
 	\chord{F} ‘Cause \chord{C}after all \chord{Bb} \ \ \ \ \chord{d} \\
 	\chord{F} You're my \chord{C}firew\chord{Bb}all \ \chord{d}  \ \ \chord{F} \ \ \chord{G}}
 
@@ -564,10 +580,10 @@ Stell’ mich Gesetzen quer, \\
 doch bald schon merke ich: \\
 das wird nicht leicht für mich. \\
 Die NSA kommt her \\
-Sie spricht in mein Gesicht, “Willst du nicht vor Gericht, \\
+Sie spricht in mein Gesicht, \glqq Willst du nicht vor Gericht, \\
 Dann gib uns deine Daten jetzt, \\
 Und ne Backdoor nicht zuletzt, \\
-Denn wir kämpfen gegen Terror, gut vernetzt:” \\
+Denn wir kämpfen gegen Terror, gut vernetzt:\grqq \\
 
 \refrefrain
 
@@ -607,12 +623,12 @@ My fridge is tweeting: \glqq Milk’s depleting\grqq \\
 
 \refrain{
 	\chord{e} And I find it kinda \chord{A}funny, I find it kinda \chord{e}sad \\
-	Technology ad\chord{A}vances, yet its’ use is just so \chord{e}bad \\
+	Technology ad\chord{A}vances, yet its use is just so \chord{e}bad \\
 	I find it hard to \chord{A}tell you, I find it hard to \chord{e}take \\
 	When my toothbrush does an \chord{A}update \\
 	It’s a very very \chord{e} mad \chord{A}world, \chord{e} mad \chord{A}world}
 
-Now my door tells me its’ antivirus \\
+Now my door tells me its antivirus \\
 is out of date, because the update’s late \\
 Honestly I’d feel a whole lot safer \\
 with a good old key without the NFC \\
@@ -635,11 +651,11 @@ My watch is syncing by bluetooth linking \\
 \vspace*{4cm}
 
 \begin{center}
-	\textsc{Wie bringt man einen Informatiker am einfachsten zum Kollabieren? \\
+	\joke{Wie bringt man einen Informatiker am einfachsten zum Kollabieren? \\
 		\ \\
 		\ldots \\
 		\ \\
-		Man gibt ihm ein Buch zu Lesen, bei dem das Inhaltsverzeichnis einen Verweis auf das Inhatsverzeichnis enthält.}
+		Man gibt ihm ein Buch zu Lesen, bei dem das Inhaltsverzeichnis einen Verweis auf das Inhaltsverzeichnis enthält.}
 \end{center}
 
 \pagebreak
@@ -648,7 +664,7 @@ My watch is syncing by bluetooth linking \\
 \songinfo{Meredith Brooks -- Bitch}{Heiko Geppert}
 
 I \chord{C}hate the world today \chord{G}\\
-\chord{F} Everyone is so cruel to me \\
+\chord{F} Everyone's so cruel to me \\
 You \chord{C}know but you won’t change  \chord{G}\\
 \chord{F} I tried to tell you \\
 but you  \chord{a}look at me like aliens \\
@@ -702,11 +718,11 @@ And  \chord{F}don’t try to flame me \\
 \subsection{Another Day in Tech Support}
 \songinfo{Phil Collins -- Another Day in Paradise}{Tobias Klotz, Dominik Schreiber}
 
-||: f\# \ \ f\# \ \ E \ \ H  :|| \\
+\textcolor{\chordcolor}{||: f\# \ \ f\# \ \ E \ \ h7 :||} \\
 
-\chord{f\#} \ She calls out to the man \chord{E} at the desk \chord{H} \\
+\chord{f\#} \ She calls out to the man \chord{E} at the desk \chord{h7} \\
 \chord{f\#} \ \glqq Sir, can you help \chord{E} me? \\
-\chord{f\#} \ I'm in a hurry and this \chord{E}printer seems dead, \chord{H} \\
+\chord{f\#} \ I'm in a hurry and this \chord{E}printer seems dead, \chord{h7} \\
 \chord{f\#} \ Anything you can do \chord{E} here?\grqq \\
 
 He sighes, stands up and helps \\
@@ -718,7 +734,7 @@ This old thing shouldn't be there \\
 	It's an\chord{D$^\Delta$}other day for you and me in \chord{E}tech support \\
 	Re\chord{f\#}boot, and a\chord{c\#}bort, \\
 	It's an\chord{D$^\Delta$}other day for you, \chord{E}you and me in tech support}
-||: f\# \ \ f\# \ \ E \ \ H \ \ :|| \\
+\textcolor{\chordcolor}{||: f\# \ \ f\# \ \ E \ \ h7 \ \ :||} \\
 (Think about it) \\
 
 She calls out to the man on the phone \\
@@ -747,7 +763,7 @@ So deformed it's disgusting \\
 \vspace*{4.5cm}
 
 \begin{center}
-	\textsc{Was haben Graphentheorie und der Twitch Chat gemein? \\
+	\joke{Was haben Graphentheorie und der Twitch Chat gemein? \\
 		\ \\
 		\ \ldots \\
 		\ \\
@@ -768,7 +784,7 @@ A \chord{D}screen like my TV, sparing as an LED \\
 	\chord{e}All I \chord{D}wanna have, \chord{e}All I \chord{D}wanna have, oh \\
 	\chord{e}All I \chord{D}wanna have is a \chord{H}new PC }
 
-As cheap as a screw, as free as a GNU\footnote{\scriptsize Betriebssystem-Projekt, das den Begriff \textit{Freie Software} maßgeblich geprägt hat} \\
+As cheap as a screw, as free as a GNU\footnote{\scriptsize Betriebssystem-Projekt, das das Ideal der \textit{Freien Software} maßgeblich vorangetrieben hat} \\
 As cool as space, as useful as an Ace \\
 Addicting as meth, running 'til my death \\
 As certain as night, always by my side \\
@@ -781,8 +797,7 @@ Precious as a gold bar, pleasant as a cookie jar \\
 \refrain{
 	\chord{e}All I \chord{D}wanna have, \chord{e}All I \chord{D}wanna have, oh \\
 	\chord{e}All I \chord{D}wanna have is a \chord{H}new PC \\
-	with everything at \chord{C}once 
-	Everything at \chord{e}once, oh-\chord{C}oh \\
+	with everything at \chord{C}once --	Everything at \chord{e}once, oh-\chord{C}oh \\
 	Everything at \chord{H}once }
 
 \pagebreak
@@ -790,7 +805,7 @@ Precious as a gold bar, pleasant as a cookie jar \\
 As silent as a breeze, as cool as a freeze \\
 Computing like a Hazel Hen\footnote{\scriptsize Spitzname des Höchstleistungsrechenzentrums Stuttgart (2015 in Betrieb genommen, zu dieser Zeit schnellster deutscher Rechner)}, never needing any fan \\
 Graphics like a winter day where I’d always wanna stay \\
-Bluray drive with read and write, And some speakers, loud and bright \\
+Bluray drive with read and write, and some speakers, loud and bright \\
 
 Open as a Linux, gorgeous as a Mac \\
 Easy as a Windows, yet hard to hack \\
@@ -805,7 +820,7 @@ The software repositories extra large \\
 \vspace*{3cm}
 
 \begin{center}
-	\textsc{Geht ein Graph in die Disco. Sagt der Türsteher: \\
+	\joke{Geht ein Graph in die Disco. Sagt der Türsteher: \\
 		So ungerichtet kommst du hier nicht rein.}
 \end{center}
 
@@ -813,13 +828,13 @@ The software repositories extra large \\
 
 \pagebreak
 
-\subsection{Smombie}
+\subsection[Smombie]{Smombie\footnote{Jugendwort des Jahres 2015; zusammengesetzt aus \glqq Smartphone\grqq \ und \glqq Zombie\grqq}}
 \songinfo{The Cranberries -- Zombie}{Dominik Schreiber}
 
 \chord{e} Another sma\chord{C}rtphone purchased, child\chord{G} is slowly ta\chord{D}ken \\
 \chord{e} and the texting cau\chord{C}ses silence, who \chord{G} are we mista\chord{D}ken \\
 
-But you see \chord{e} they're not free, they're chained to \chord{C} their IP \\
+But you see \chord{e} they're not free, they just blindly agree \\
 in their chat\chord{G}, in their chat they are smi\chord{D}ling \\
 With their apps\chord{e} and their phones and their watch \chord{C} and their apps \\
 in the stores\chord{G}, in the stores they are buy\chord{D}ing \\
@@ -845,6 +860,7 @@ in their chat, in their chat they are smiling \\
 	Smombie, Smombie, Smombie-e-e-}
 
 \pagebreak
+%\vspace*{-1cm}
 
 \subsection{You Are The Best Phone}
 \songinfo{Stevie Wonder – You are the sunshine of my life}{Daniela Nicklas (2010)}
@@ -884,7 +900,7 @@ Forever you'll stay in my palm. \\
 \songinfo{Sportfreunde Stiller -- Applaus, Applaus}{Dominik Schreiber}
 
 \chord{G} Ist meine \chord{D}Schleife ohne Ab\chord{e}bruch  \\
-Empfiehlst du “Break” \\
+Empfiehlst du \texttt{\footnotesize break} \\
 \chord{G} Und redu\chord{D}zierst Komplexi\chord{e}tät \\
 \chord{G} Du gibst \textit{Best }\chord{D}\textit{Practise} mit Bedacht\chord{e} für jeden Code \\
 \chord{G} Bist für den \chord{D}Programmierer \chord{e}täglich Brot \\
@@ -897,7 +913,7 @@ Empfiehlst du “Break” \\
 	Ich \chord{G}wünsch mir so sehr, niemand \chord{D}kauft dich jemals auf}
 
 Macht meine Klasse großen Unsinn, kriegst du sie wieder hin \\
-Zeigst mir auf schlaue Art und Weise, was \glqq private\grqq \ heißt \\
+Zeigst mir auf schlaue Art und Weise, was \texttt{\footnotesize private} heißt \\
 Und ist mein Java out of Memory trotz großem Heap \\
 Kennst du die Stellen, wo mein Speicher blieb \\
 
@@ -929,7 +945,7 @@ To think the way we do today / And then if you can't remember \ldots \\
 	\chord{D} To find primes, \chord{A} for bad times \\
 	\chord{C}It’ll be in your keys \chord{H} forever mor\chord{A$^{5-}$}e -- \ \ \ \  \chord{A$^{sus4}$}That's what math is for \chord{A}}
 
-D \ \ A \ \ h  \\
+\textcolor{\chordcolor}{D \ \ A \ \ h}  \\
 \chord{e} \ Understand complexity\chord{d$^{7/5-}$} \\
 And now there's \chord{F\#$^{sus4}$}so much more \chord{F\#}I see \\
 \chord{h} \ And so \chord{e}by the way I thank \chord{A}you \ldots \\
@@ -943,12 +959,12 @@ And then if you can't remember \ldots Ohhhhh \\
 
 \vspace*{-1cm}
 
-\subsection{Word User Trying \TeX }
+\subsection[Word User Trying \TeX ]{Word User Trying \TeX\footnote{Textsatzsystem ähnlich einer Programmiersprache; auszusprechen wie \textit{tech[nik]}, nicht \textit{teks}} }
 
 \chord{d} I like my \chord{G}office as a \chord{a}WYSIWYG\footnote{\emph{What You See Is What You Get} (Unmittelbare Echtbilddarstellung)} \\
 \chord{d} I don’t com\chord{G}pile, I click “Ex\chord{a}port” \\
 \chord{d} Prefer the \chord{G}\glqq Bold\grqq \ button to \chord{a}backslash textbf \\
-I’m a \chord{d}Word user \chord{G}trying \TeX \chord{a} \footnote{Auszusprechen wie \textit{tech}, nicht \textit{teks}} \\
+I’m a \chord{d}Word user \chord{G}trying \TeX \chord{a} \\
 
 \songinfo{Sting -- Englishman In New York}{Dominik Schreiber}
 
@@ -993,7 +1009,7 @@ It works well, no matter what they say \\
 \refrefrain
 
 \refrain{
-	Aaa\chord{d}ah -- That’s what do\chord{G}llars means, all\chord{e} the code is clear \chord{a} to me, \\
+	Aaa\chord{d}ah -- That’s what do\chord{G}llars mean, all\chord{e} the code is clear \chord{a} to me, \\
 	With some \chord{d}backslashes \chord{G}it will work\chord{a} \\
 	Aaa\chord{d}ah -- It’s compi\chord{G}ling now, what\chord{e} a pretty do\chord{a}cument \\
 	The most \chord{d}beautiful \chord{G}thing I’ve seen\chord{a}.}
@@ -1051,7 +1067,7 @@ I'm coding Python instead \\
 	\hfill -- Puff, The Magic Dragon}{Dominik Schreiber}
 \chord{G}Tux, the magic \chord{h}penguin \chord{C}lived by a \chord{G}tree \\
 with \chord{a}thousand branches, \chord{G}leaves and nodes \\
-all \chord{A}open source and \chord{D}free, \\
+all \chord{A}open source and \chord{D}Free, \\
 \chord{G}Many branches \chord{h}flourished \\
 \chord{C}some of them, they \chord{G}grew \\
 \chord{a}others withered, \chord{G}growing old \\
@@ -1060,10 +1076,10 @@ re\chord{a}placed by \chord{D}something \chord{G}new. \\
 \refrain{
 Tux, the magic penguin lived by a tree \\
 with thousand branches, leaves and nodes \\
-all open source and free, \\
+all open source and Free, \\
 Tux, the magic penguin lived by a tree \\
 with thousand branches, leaves and nodes \\
-all open source and free.}
+all open source and Free.}
 
 Tux had a companion who was a little GNU \\
 In Unity\footnote{\scriptsize Desktopumgebung von Canonical für Ubuntu-Systeme}, they went along \\
@@ -1079,7 +1095,7 @@ and played some freeware game. \\
 
 A hairy guy called Richard, idealist and tough, \\
 he interjected and remarked, \\
-\glqq 'Free of charge' is not enough!\grqq \\
+\glqq \glq Free of charge\grq \ is not enough!\grqq \\
 He told the friends to quickly get rid of all the things \\
 That weren't Libre Open Source \\
 \glqq You'll be Free\grqq, the man still sings.\footnote{\scriptsize Richard Stallman Free Software Song: \texttt{https://youtu.be/9sJUDx7iEJw}} \\
@@ -1102,7 +1118,7 @@ Their chief, called Linus, screamed at all \\
 who’d make a kernel mess \\
 Some became offended and didn’t want no more \\
 But Tux will surely overcome, \\
-as fork or with the core. \\
+by a fork or with the core. \\
 
 \refrefrain
 	
@@ -1114,17 +1130,17 @@ as fork or with the core. \\
 	
 	\hfill -- Goldfinger}{Verena Schütz \& Tobias Beeh}
 
-||: E C | \hspace{0.8cm} :||\\
+\textcolor{\chordcolor}{||: E C | \hspace{0.8cm} :||}\\
 
 \chord{E}Code\chord{C}finger \\
-\chord{Hm}He’s the \chord{E}man, the \chord{A}man from the darkweb\footnote{\scriptsize Auch Dark-, Deepnet. Ein undichsichtiger und oft krimineller Teil des Internets}’s \chord{D\#}site \\
+\chord{Hm}He’s the \chord{E}man, the \chord{A}man from the darkweb\footnote{\scriptsize Auch Dark-, Deepnet. Ein undurchsichtiger und oft krimineller Teil des Internets}’s \chord{D\#}site \\
 A coder’s \chord{H}site. \hspace{.4cm} Such a \\
 
 cold finger \\
 Beckons you to enter his web of sin \\
 But don’t go in \\
 
-g\# E | f$^{07}$ E \\
+\textcolor{\chordcolor}{g\# E | f$^{07}$ E} \\
 
 \refrain{
 	He will \chord{d\#}tell you that \chord{g\#$^7$}everything’s \chord{B}fine \\
@@ -1135,14 +1151,14 @@ g\# E | f$^{07}$ E \\
 Codefinger -- clueless men beware of his heart of code \\
 This heart is cold \\
 
-g\# E | f$^{07}$ E \\
+\textcolor{\chordcolor}{g\# E | f$^{07}$ E} \\
 
 \refrefrain
 
 Codefinger -- clueless men beware of his heart of code \\
 This heart is cold \\
 
-||: g\# E | f$^{07}$ E :||\\
+\textcolor{\chordcolor}{||: g\# E | f$^{07}$ E :||}\\
 
 %He loves only code \\
 %Only code \\
@@ -1227,7 +1243,7 @@ Doch heute hier, das ist sein Fest, da halten wir ihn einfach fest.}
 \vspace*{4cm}
 
 \begin{center}
-	\textsc{
+	\joke{
 		Warum tragen Informatiker immer nur Schuhe mit Klettverschluss? \\
 		\ \\
 		\ \ldots \\
@@ -1237,9 +1253,9 @@ Doch heute hier, das ist sein Fest, da halten wir ihn einfach fest.}
 
 \pagebreak
 
-\vspace*{3.5cm}
+\vspace*{1.5cm}
 
-\hfill\includegraphics[width=12cm]{hacker-cover-hinten-zugeschnitten.png}\hspace*{\fill}
+\hfill\includegraphics[width=12cm]{hacker-cover-hinten.pdf}\hspace*{\fill}
 
 \thispagestyle{empty}
 
