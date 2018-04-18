@@ -1,11 +1,6 @@
-<!--- # Sounds Out Of Bounds - Wiederverwendbare Liedermodule
-
-Dieses Liederbuch entstand an der Universität Stuttgart als Nachfolger früherer Fachschafts-Liederbücher *Chor Dump* und *Chor Dump 2* zum Thema Informatik und IT.
-Es enthält 20 Lieder zum Thema IT, Informatik und Softwaretechnik, und nimmt dabei auch auf viele Themen für "Endanwender" Bezug.
-Dazu enthält *Sounds Out Of Bounds* zwei Bonus-Lieder speziell bezogen auf die Informatiker in Stuttgart.
--->
-
 # Sounds Out Of Bounds - Re-usable Song Modules
+
+**[Download PDF](https://github.com/domschrei/soundsoutofbounds)**
 
 This songbook was created at the University of Stuttgart and intended to be a successor to previous songbooks *Chor Dump* and *Chor Dump 2* about computer science and IT, which were written by former students.
 It contains 20 song texts about IT, computer science and software engineering, also referencing many topics for "end users".
