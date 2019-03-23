@@ -31,8 +31,6 @@
 	urlcolor=black
 }
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,56 +126,26 @@ linewidth=2pt
 \maketitle
 \thispagestyle{empty}
 \pagebreak
-\tableofcontents
-\pagebreak
 
 % Document font size
 \small
 
+% Do not delete or modify this line, it is necessary for the build script.
+%INCLUDE_PREAMBLE
+\input{preamble.tex}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Preamble and Hints
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Vorwort}
-
-Liebe Leserin, lieber Leser! \\
-			
-Fertig kompiliert, Beta-getestet und integriert liegt es nun in deinen Händen, das neue Liederbuch für Informatiker, Softwaretechniker, IT-ler und alle Interessierten. 
-Es erwartet dich eine bunte Mischung von zweiundzwanzig selbst-gedichteten Songtexten, die die \glqq Welt der Informatik\grqq \ thematisieren, aber nicht allzu ernst nehmen. Das Digitale nimmt heute so viel Einfluss auf unsere Leben wie noch nie zuvor -- da ist es doch völlig angebracht, auch einmal unsere Smartphones und Computer, und unsere Erlebnisse mit ihnen, ausgiebig zu besingen.
-
-Entstanden ist das ganze aus dem Wunsch heraus, den damals von der Stuttgarter Informatik-- und Softwaretechnik-Fachschaft herausgegebenen und mittlerweile etwas in die Jahre gekommenen Liederbüchern \emph{Chor Dump} und \emph{Chor Dump 2} einen würdigen Nachfolger zu bescheren.
-Da wir mit der Zeit gehen möchten, heißt der Untertitel des Buches nun natürlich nicht mehr \emph{Effiziente Algorythmen}, sondern \emph{Wiederverwendbare Liedermodule}.
-
-Danken möchten wir Jun.-Prof. Dirk Pflüger, der eines Abends auf der Ferienakademie im schönen Sarntal den Anstoß für die Idee gegeben hat; den fleißigen Fachschaftlern, die tollerweise das Drucken übernommen haben; sowie natürlich allen, die kreative Ideen und Texte für die Lieder eingebracht haben. \\
-
-Damit wäre alles geklärt -- ganz viel Spaß beim Singen! \\
-
-\hfill Dominik Schreiber \\
-
-\ \\
-
-\subsection*{Hinweise}
-
-Die Lieder sind soweit möglich thematisch sortiert; Freunde der Softwareentwicklung beginnen am besten ganz am Anfang, während die \glqq Endbenutzer\grqq \ des Liederbuchs insbesondere auf den Seiten 14 bis 27 auf ihre Kosten kommen. Hymnen auf einzelne, bekannte Institutionen aus der IT-Welt (etwa Linux oder Python) folgen ab Seite 28. Abgerundet wird das Buch durch zwei \glqq Bonus-Lieder\grqq \ spezifisch für die Informatik an der Uni Stuttgart.
-
-\emph{Refrains} sind hinterlegt.
-Zu \emph{Strophen} und \emph{Bridges} sind die Akkordfolgen in der Regel einmal angegeben, und werden dann implizit wiederholt. Die Lieder sollte man im Ohr haben, da keine Noten abgedruckt sind.
-
-Die Tonart einiger Lieder wurde zugunsten der Spielbarkeit angepasst.
-
+\tableofcontents
 \pagebreak
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Songs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{songs/branching-tree.tex}
+% Do not delete or modify this line, it is necessary for the build script.
+%INCLUDE_SONGS
 
-\input{songs/learning-in-the-deep.tex}
+\input{songs/branching-tree.tex}
 
 \input{songs/another-byte-in-the-code.tex}
 
@@ -216,8 +184,6 @@ Die Tonart einiger Lieder wurde zugunsten der Spielbarkeit angepasst.
 \input{songs/tux-the-magic-penguin.tex}
 
 \input{songs/codefinger.tex}
-
-\input{songs/make-it-slow.tex}
 
 \input{songs/kunst-am-bau.tex}
 
