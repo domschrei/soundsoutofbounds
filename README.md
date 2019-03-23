@@ -47,7 +47,7 @@ The following songs have been added afterwards:
 
 There are the following ways to get a PDF copy of SoundsOutOfBounds:
 
-The PDF of the Original Edition as it has been printed back in 2016 can be downloaded **[here](https://github.com/domschrei/soundsoutofbounds/releases/download/1.0.3/SoundsOutOfBounds_V1.0.3.pdf).
+The PDF of the Original Edition as it has been printed back in 2016 can be downloaded [here](https://github.com/domschrei/soundsoutofbounds/releases/download/1.0.3/SoundsOutOfBounds_V1.0.3.pdf).
 
 This PDF, with minor corrections, can also be compiled from sources using PdfLatex (as long as the needed packages are available):
 
