@@ -10,8 +10,10 @@ import re
 def print_usage():
     
     print("Build Tool for SoundsOutOfBounds \"Rolling Release\"")
-    print("Usage: " + sys.argv[0] + " <selection>")
-    print("  <selection>: List of numbers corresponding to the songs to include, in that order")
+    print("Usage: " + sys.argv[0] + " [--jokes] [--footnotes] <selection>")
+    print("  --jokes      Include terrible German jokes and puns as fillers on some pages")
+    print("  --footnotes  Include footnotes (in German) explaining some of the lyrics' details")
+    print("  <selection>  List of numbers corresponding to the songs to include, in that order")
     print("               0: Include all songs")
     print("               Pos. number: Include the song of that index (see list below)")
     print("               Neg. number: Exclude the song of that index")
@@ -41,11 +43,20 @@ if len(sys.argv) <= 1:
     exit()
 
 else:
-    
-    # Create list of picked songs
+
+    # Configuration
     picked_songfiles = []
-    # For each argument
+    include_jokes = False
+    include_footnotes = False
+    
+    # Parse configuration from arguments
     for arg in sys.argv[1:]:
+        if "--jokes" in arg:
+            include_jokes = True
+            continue
+        if "--footnotes" in arg:
+            include_footnotes = True
+            continue
         i = int(arg)
         if i == 0:
             # Select all songs
@@ -71,6 +82,11 @@ else:
                ["%INCLUDE_HOST", socket.gethostname()], 
                ["%INCLUDE_SCRIPTNAME", sys.argv[0]],
                [".pdf", "_rr.pdf"]]
+    # Remove some elements by redefining the respective command
+    if not include_jokes:
+        aliases += [["\\newcommand\\joke", "\\newcommand\\joke[1]{} \\newcommand\\nojokeever"]]
+    if not include_footnotes:
+        aliases += [["%INCLUDE_CUSTOM_CMDS", "\\renewcommand{\\footnote}[1]{}\n"]]
     
     # Write new main.tex with selected songs
     outfile = open("main_selection.tex", "w")
@@ -98,8 +114,8 @@ else:
     
     # Move output file, delete working files
     os.rename("main_selection.pdf", "out.pdf")
-    for f in listdir("./"):
-        if str(f).startswith("main_selection."):
-            os.remove(f)
+    #for f in listdir("./"):
+    #    if str(f).startswith("main_selection."):
+    #        os.remove(f)
     
     print("Output written to out.pdf.")
