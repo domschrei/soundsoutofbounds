@@ -19,6 +19,7 @@
 \usepackage{titlesec}
 \usepackage[most]{tcolorbox}
 \usepackage{color}
+\usepackage{mdframed}
 
 % Clickable ToC, see http://tex.stackexchange.com/a/73865
 \usepackage{hyperref}
@@ -57,6 +58,16 @@
 	arc=0pt,outer arc=0pt,
 }
 
+% Borders indicating pre-chorus blocks
+\newmdenv[
+topline=false,
+bottomline=false,
+rightline=false,
+skipabove=0,
+skipbelow=0,
+linewidth=2pt
+]{siderules}
+
 % Suppress enumeration of sections
 \setcounter{secnumdepth}{-1}
 
@@ -66,10 +77,12 @@
 \setlength{\parindent}{0cm}
 
 % Adding Chords
-\newcommand\chord[2][l]{\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}\textcolor{\chordcolor}{#2}\\\mbox{}\end{tabular}}}
+\newcommand\chord[2][l]{\makebox[0pt][#1]{\begin{tabular}[b]{@{}l@{}}\textcolor{\chordcolor}{\normalfont{#2}}\\\mbox{}\end{tabular}}}
 
 % Highlighting and referencing chorus
+\newcommand\prechorus[1]{\begin{siderules}#1\end{siderules} \ }
 \newcommand\refrain[1]{\begin{tcolorbox}#1\end{tcolorbox} \ }
+\newcommand\refprechorus{\prechorus{\textsc{Pre-Chorus}} \ }
 \newcommand{\refrefrain}{\refrain{\textsc{Refrain}} \ }
 \newcommand{\refrefraintwice}{\refrain{\textsc{2x Refrain}} \ }
 \newcommand{\refrefrainthreetimes}{\refrain{\textsc{3x Refrain}} \ }
@@ -164,6 +177,8 @@ Die Tonart einiger Lieder wurde zugunsten der Spielbarkeit angepasst.
 
 \input{songs/branching-tree.tex}
 
+\input{songs/learning-in-the-deep.tex}
+
 \input{songs/another-byte-in-the-code.tex}
 
 \input{songs/the-final-countdown.tex}
@@ -202,6 +217,8 @@ Die Tonart einiger Lieder wurde zugunsten der Spielbarkeit angepasst.
 
 \input{songs/codefinger.tex}
 
+\input{songs/make-it-slow.tex}
+
 \input{songs/kunst-am-bau.tex}
 
 \input{songs/volker-claus.tex}
@@ -214,7 +231,7 @@ Die Tonart einiger Lieder wurde zugunsten der Spielbarkeit angepasst.
 
 \vspace*{1.5cm}
 
-\hfill\includegraphics[width=12cm]{hacker-cover-hinten.pdf}\hspace*{\fill}
+\hfill\includegraphics[width=12cm]{hacker-cover-back.pdf}\hspace*{\fill}
 
 \thispagestyle{empty}
 	
