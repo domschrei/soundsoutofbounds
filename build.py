@@ -58,7 +58,9 @@ def build_booklet(inputfile, outputfile):
         rightpage -= 2
     
     i = 0
-    (w,h) = input.getPage(2).mediaBox.upperRight
+    (w,h) = (595.276, 841.847) # DIN A4
+    #(w,h) = input.getPage(2).mediaBox.upperRight
+    #print(w,h)
     # For each group of four page indices:
     while i+3 < num_pages:
         
@@ -80,14 +82,14 @@ def build_booklet(inputfile, outputfile):
         
         # First page consisting of two pages
         newpage = PageObject.createBlankPage(width=h, height=w)
-        newpage.mergeRotatedScaledTranslatedPage(page_objects[0], 0, 1.0/math.sqrt(2), 0, 0)
-        newpage.mergeRotatedScaledTranslatedPage(page_objects[1], 0, 1.0/math.sqrt(2), h/2, 0)
+        newpage.mergeRotatedScaledTranslatedPage(page_objects[0], 0, 1, 0, 0)
+        newpage.mergeRotatedScaledTranslatedPage(page_objects[1], 0, 1, h/2, 0)
         output.addPage(newpage)
         
         # Second page consisting of two pages
         newpage = PageObject.createBlankPage(width=h, height=w)
-        newpage.mergeRotatedScaledTranslatedPage(page_objects[2], 0, 1.0/math.sqrt(2), 0, 0)
-        newpage.mergeRotatedScaledTranslatedPage(page_objects[3], 0, 1.0/math.sqrt(2), h/2, 0)
+        newpage.mergeRotatedScaledTranslatedPage(page_objects[2], 0, 1, 0, 0)
+        newpage.mergeRotatedScaledTranslatedPage(page_objects[3], 0, 1, h/2, 0)
         output.addPage(newpage)
         
         i += 4
