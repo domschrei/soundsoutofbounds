@@ -1,6 +1,6 @@
 \documentclass[11pt,a5paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{german}
+%\usepackage{german}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -93,7 +93,7 @@ linewidth=2pt
 		
 		\hfill #1
 		
-		\hfill  \textit{Text:} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+		\hfill  \textit{Lyrics:} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
 		
 		\hfill #2
 	\end{textblock}}
@@ -103,11 +103,16 @@ linewidth=2pt
 		\footnotesize 
 		\hfill \textit{Original:} #1
 		
-		\hfill  \textit{Text:} #2
+		\hfill  \textit{Lyrics:} #2
 	\end{textblock}}
 	
 % Adding a Joke (as a filler)
 \newcommand\joke[1]{\textcolor{\colorjoke}{\textsc{#1}}}
+
+\newcommand\glq{`}
+\newcommand\grq{'}
+\newcommand\glqq{``}
+\newcommand\grqq{''}
 
 % Title page
 \def\maketitle{

@@ -1,3 +1,4 @@
+
 # Sounds Out Of Bounds - Re-usable Song Modules
 
 **[Download Original Edition PDF](https://github.com/domschrei/soundsoutofbounds/releases/download/1.0.3/SoundsOutOfBounds_V1.0.3.pdf)**
@@ -53,4 +54,5 @@ This PDF, with minor corrections, can also be compiled from sources using PdfLat
 
 `pdflatex -synctex=1 -interaction=nonstopmode main.tex`
 
-To build a custom PDF with the songs you like, consult the script `build.py` (Python 3 required). Calling it without any parameters will provide detailed instructions on how to build the songbook exactly as you want.
+To build a custom PDF with the songs you like, consult the script `build.py` (Python 3 required). Calling it without any parameters will provide detailed instructions on how to build the songbook exactly as you want.  
+This way, you can also get a booklet-style PDF which you can then directly print out on any duplex printer to get a nice booklet.
